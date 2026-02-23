@@ -95,6 +95,100 @@ src/Hooks/: Custom hooks for fetching user profiles on application load.
 
 
 
+📊 Database Schema
+The system uses the following relational table structures:
+
+
+
+1. Users (users)
+Stores employee information and system credentials.
+
+id: Primary Key (BigInt)
+
+name: String
+
+email: String (Unique, used for login)
+
+password: String (BCrypt encoded)
+
+role: String (ADMIN, EMPLOYEE, ITSUPPORT)
+
+dept: String
+
+
+2. Assets (assets)
+Tracks the hardware inventory available for assignment.
+
+id: Primary Key (BigInt)
+
+serial: String (Unique hardware ID)
+
+name: String
+
+status: String (AVAILABLE, BOOKED, BROKEN, UNAVAILABLE)
+
+quantity: Integer
+
+
+
+3. Bookings (bookings)
+Records office seat reservations.
+
+id: Primary Key (BigInt)
+
+seat_no: Integer
+
+date: LocalDate
+
+user_id: Foreign Key to users
+
+Constraints: Unique combination of (user_id, date) and (seat_no, date).
+
+
+
+4. Asset Assignments (asset_assignments)
+Maps specific assets to users.
+
+id: Primary Key (BigInt)
+
+asset_id: Foreign Key to assets
+
+user_id: Foreign Key to users
+
+status: String (ASSIGNED, BROKEN, RETURNED)
+
+assignedDate: LocalDate
+
+
+
+5. Requests (requests)
+Manages the workflow for new asset procurement or repairs.
+
+id: Primary Key (BigInt)
+
+item: String
+
+requestStatus: String (DRAFT, PENDING, APPROVE, ASSIGNE, REJECTE)
+
+requestType: String (USER_REQUEST, SYSTEM_GENERATED)
+
+user_id: Foreign Key to users
+
+asset_id: Foreign Key to assets (Nullable)
+
+
+
+6. Seat Capacity (seat_capacity)
+Defines the total seats available per day.
+
+id: Primary Key (BigInt)
+
+date: LocalDate (Unique)
+
+totalSeats: Integer
+
+
+
 
 🚦 API Reference & URLs
 
