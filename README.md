@@ -6,16 +6,21 @@ AssetFlow is a full-stack corporate management application designed to streamlin
 
 
 
-*** Features***
+****Features*****
 
-🏢 Seat Booking Management
+
+ ****Seat Booking Management*****
+ 
 Interactive Seat Map: Visual grid (1-30 seats by default) with real-time availability status for any selected date.
 
 Dynamic Capacity: Administrators can configure the total number of available seats for specific dates.
 
 Smart Constraints: Prevents double-booking of the same seat and restricts users to one booking per day.
 
-💻 Asset Lifecycle Tracking
+
+
+****Asset Lifecycle Tracking****
+
 Inventory Management: Administrators can add, update, or delete hardware assets with unique serial numbers.
 
 Request Workflow: Employees can request new assets or report existing gear as "Broken".
@@ -27,7 +32,8 @@ Assignment Tracking: Tracks which user currently holds which asset and its opera
 
 
 
-🔐 Security & Access Control
+*****Security & Access Control*****
+
 JWT Authentication: Secure stateless authentication using JSON Web Tokens stored in HTTP-only cookies.
 
 Role-Based Access Control (RBAC):
@@ -38,7 +44,11 @@ ITSUPPORT: Request desk management and status updates (Approve/Assign/Reject).
 
 EMPLOYEE: Personal asset portal and seat reservation dashboard.
 
-🛠️ Tech Stack
+
+
+
+****Tech Stack****
+
 Backend (Spring Boot)
 Java 17 & Spring Boot.
 
@@ -52,7 +62,8 @@ Database: Relational database with unique constraints for data integrity.
 
 
 
-Frontend (React)
+*****Frontend (React)***
+
 Vite: Modern build tool for fast development.
 
 Tailwind CSS: Utility-first styling with a custom enterprise theme.
@@ -68,8 +79,7 @@ Lucide React: High-quality icon set for the UI.
 
 
 
-📂 Project Structure
-
+*****Project Structure*****
 
 Backend Modules
 controller/: REST endpoints for Auth, Assets, Bookings, and Requests.
@@ -95,9 +105,9 @@ src/Hooks/: Custom hooks for fetching user profiles on application load.
 
 
 
-📊 Database Schema
-The system uses the following relational table structures:
+***Database Schema***
 
+The system uses the following relational table structures:
 
 
 1. Users (users)
@@ -114,6 +124,7 @@ password: String (BCrypt encoded)
 role: String (ADMIN, EMPLOYEE, ITSUPPORT)
 
 dept: String
+
 
 
 2. Assets (assets)
@@ -190,7 +201,7 @@ totalSeats: Integer
 
 
 
-🚦 API Reference & URLs
+***API Reference & URLs***
 
 Authentication
 Login: POST http://localhost:8080/auth/login
